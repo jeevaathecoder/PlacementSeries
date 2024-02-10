@@ -1,0 +1,176 @@
+//Java
+
+class Solution {
+    public void setZeroes(int[][] matrix) {
+        int rowLength = matrix.length;
+        int colLength = matrix[0].length;
+
+        int[] row = new int[rowLength];
+        int[] col = new int[colLength];
+
+        for(int i=0;i<rowLength; i++){
+
+           for(int j=0;j<colLength; j++){
+               if(matrix[i][j] == 0){
+                   row[i]=1;
+                   col[j]=1;
+               }
+           }
+
+        }
+
+        for(int i=0;i<rowLength; i++){
+            for(int j=0;j<colLength; j++){
+                if(row[i] == 1 || col[j] == 1){
+                    matrix[i][j] =0;
+                }
+            }
+        }
+
+    }
+}
+
+
+-------------------------------------------------------------------------------------
+//Python
+
+class Solution:
+    def setZeroes(self, matrix):
+        row_length = len(matrix)
+        col_length = len(matrix[0])
+
+        row = [0] * row_length
+        col = [0] * col_length
+
+        for i in range(row_length):
+            for j in range(col_length):
+                if matrix[i][j] == 0:
+                    row[i] = 1
+                    col[j] = 1
+
+        for i in range(row_length):
+            for j in range(col_length):
+                if row[i] == 1 or col[j] == 1:
+                    matrix[i][j] = 0
+
+sol = Solution()
+matrix = [[1, 2, 3],
+          [4, 0, 6],
+          [7, 8, 9]]
+
+sol.setZeroes(matrix)
+
+for row in matrix:
+    print(row)
+
+
+--------------------------------------------------------------
+
+
+C++
+
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+        int rowLength = matrix.size();
+        int colLength = matrix[0].size();
+
+        vector<int> row(rowLength, 0);
+        vector<int> col(colLength, 0);
+
+        for(int i = 0; i < rowLength; i++) {
+            for(int j = 0; j < colLength; j++) {
+                if(matrix[i][j] == 0) {
+                    row[i] = 1;
+                    col[j] = 1;
+                }
+            }
+        }
+
+        for(int i = 0; i < rowLength; i++) {
+            for(int j = 0; j < colLength; j++) {
+                if(row[i] == 1 || col[j] == 1) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
+};
+
+int main() {
+    Solution sol;
+    vector<vector<int>> matrix = {{1, 2, 3},
+                                   {4, 0, 6},
+                                   {7, 8, 9}};
+
+    sol.setZeroes(matrix);
+
+    for(int i = 0; i < matrix.size(); i++) {
+        for(int j = 0; j < matrix[0].size(); j++) {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+
+
+---------------------------------------------------
+//C program
+
+    #include <stdio.h>
+
+void setZeroes(int matrix[][3], int matrixSize, int* matrixColSize) {
+    int rowLength = matrixSize;
+    int colLength = *matrixColSize;
+
+    int row[rowLength];
+    int col[colLength];
+
+    for(int i = 0; i < rowLength; i++) {
+        for(int j = 0; j < colLength; j++) {
+            if(matrix[i][j] == 0) {
+                row[i] = 1;
+                col[j] = 1;
+            }
+        }
+    }
+
+    for(int i = 0; i < rowLength; i++) {
+        for(int j = 0; j < colLength; j++) {
+            if(row[i] == 1 || col[j] == 1) {
+                matrix[i][j] = 0;
+            }
+        }
+    }
+}
+
+int main() {
+    int matrix[][3] = {{1, 2, 3},
+                       {4, 0, 6},
+                       {7, 8, 9}};
+    int matrixSize = sizeof(matrix) / sizeof(matrix[0]);
+    int matrixColSize = sizeof(matrix[0]) / sizeof(matrix[0][0]);
+
+    setZeroes(matrix, matrixSize, &matrixColSize);
+
+    for(int i = 0; i < matrixSize; i++) {
+        for(int j = 0; j < matrixColSize; j++) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+
+
+---------------------------------------------
