@@ -1,0 +1,176 @@
+//Java
+class Solution {
+    public void rotate(int[][] matrix) {
+        int n = matrix.length;
+
+        for(int i=0;i<n ; i++){
+            for(int j=i;j<n ;j++){
+                trans(matrix, i , j);
+            }
+        }
+
+        for(int i=0;i<n;i++){
+            int start=0;
+            int end=n-1;
+
+            while(start<end){
+                swap(matrix, i, start, end);
+                start++;
+                end--;
+            }
+        }
+    }
+
+    public void trans(int[][] matrix, int i , int j){
+        int temp= matrix[i][j];
+        matrix[i][j] = matrix[j][i];
+        matrix[j][i] = temp;
+    }
+
+    public void swap(int[] [] matrix,int  i,int  start,int end){
+        int temp = matrix[i][start];
+        matrix[i][start]= matrix[i][end];
+        matrix[i][end] = temp;
+    }
+}
+
+---------------------------------------------------------------------------------------------------
+
+//Python 
+
+class Solution:
+    def rotate(self, matrix):
+        n = len(matrix)
+
+        # Transpose the matrix
+        for i in range(n):
+            for j in range(i, n):
+                self.trans(matrix, i, j)
+
+        # Reverse each row
+        for i in range(n):
+            start = 0
+            end = n - 1
+            while start < end:
+                self.swap(matrix, i, start, end)
+                start += 1
+                end -= 1
+
+    def trans(self, matrix, i, j):
+        temp = matrix[i][j]
+        matrix[i][j] = matrix[j][i]
+        matrix[j][i] = temp
+
+    def swap(self, matrix, i, start, end):
+        temp = matrix[i][start]
+        matrix[i][start] = matrix[i][end]
+        matrix[i][end] = temp
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+//C++
+
+
+
+#include <vector>
+
+class Solution {
+public:
+    void rotate(std::vector<std::vector<int>>& matrix) {
+        int n = matrix.size();
+
+        // Transpose the matrix
+        for (int i = 0; i < n; ++i) {
+            for (int j = i; j < n; ++j) {
+                trans(matrix, i, j);
+            }
+        }
+
+        // Reverse each row
+        for (int i = 0; i < n; ++i) {
+            int start = 0;
+            int end = n - 1;
+            while (start < end) {
+                swap(matrix, i, start, end);
+                ++start;
+                --end;
+            }
+        }
+    }
+
+    void trans(std::vector<std::vector<int>>& matrix, int i, int j) {
+        int temp = matrix[i][j];
+        matrix[i][j] = matrix[j][i];
+        matrix[j][i] = temp;
+    }
+
+    void swap(std::vector<std::vector<int>>& matrix, int i, int start, int end) {
+        int temp = matrix[i][start];
+        matrix[i][start] = matrix[i][end];
+        matrix[i][end] = temp;
+    }
+};
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------
+//C Program
+
+#include <stdio.h>
+
+void trans(int matrix[][3], int i, int j) {
+    int temp = matrix[i][j];
+    matrix[i][j] = matrix[j][i];
+    matrix[j][i] = temp;
+}
+
+void swap(int matrix[][3], int i, int start, int end) {
+    int temp = matrix[i][start];
+    matrix[i][start] = matrix[i][end];
+    matrix[i][end] = temp;
+}
+
+void rotate(int matrix[][3]) {
+    int n = 3; // Assuming the size of the matrix is 3x3
+
+    // Transpose the matrix
+    for (int i = 0; i < n; i++) {
+        for (int j = i; j < n; j++) {
+            trans(matrix, i, j);
+        }
+    }
+
+    // Reverse each row
+    for (int i = 0; i < n; i++) {
+        int start = 0;
+        int end = n - 1;
+        while (start < end) {
+            swap(matrix, i, start, end);
+            start++;
+            end--;
+        }
+    }
+}
+
+int main() {
+    int matrix[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+
+    printf("Original matrix:\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+
+    rotate(matrix);
+
+    printf("\nRotated matrix:\n");
+    for (int i = 0; i < 3; i++) {
+      
