@@ -1,0 +1,167 @@
+//Java Code 
+class Solution {
+    public void sortColors(int[] nums) {
+        int start=0;
+        int mid=0;
+        int end= nums.length-1;
+
+        while(mid<=end){
+            if(nums[mid] == 0){
+                swap(nums,start,mid);
+                start++;
+                mid++;
+            }
+
+            else if(nums[mid] == 1){
+                mid++;
+            }
+
+            else{
+                swap(nums,mid, end);
+                end--;
+            }   
+        }
+    }public void sortColors(int[] nums) {
+        int start=0;
+        int mid=0;
+        int end= nums.length-1;
+
+        while(mid<=end){
+            if(nums[mid] == 0){
+                swap(nums,start,mid);
+                start++;
+                mid++;
+            }
+
+            else if(nums[mid] == 1){
+                mid++;
+            }
+
+            else{
+                swap(nums,mid, end);
+                end--;
+            }   
+        }
+    }
+
+    public void swap(int[] nums, int s, int e){
+        int temp = nums[s];
+        nums[s] = nums[e];
+        nums[e] = temp;
+    }
+
+}
+
+_________________________________________________________________________________________
+
+
+Pyton
+
+def sortColors(nums):
+    start = 0
+    mid = 0
+    end = len(nums) - 1
+
+    while mid <= end:
+        if nums[mid] == 0:
+            nums[start], nums[mid] = nums[mid], nums[start]
+            start += 1
+            mid += 1
+        elif nums[mid] == 1:
+            mid += 1
+        else:
+            nums[mid], nums[end] = nums[end], nums[mid]
+            end -= 1
+
+# Example usage:
+nums = [2,0,2,1,1,0]
+sortColors(nums)
+print(nums)
+
+
+
+_________________________________________________________________________________________
+
+
+
+CPP
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void sortColors(vector<int>& nums) {
+    int start = 0;
+    int mid = 0;
+    int end = nums.size() - 1;
+
+    while (mid <= end) {
+        if (nums[mid] == 0) {
+            swap(nums[start], nums[mid]);
+            start++;
+            mid++;
+        } else if (nums[mid] == 1) {
+            mid++;
+        } else {
+            swap(nums[mid], nums[end]);
+            end--;
+        }
+    }
+}
+
+// Example usage:
+int main() {
+    vector<int> nums = {2,0,2,1,1,0};
+    sortColors(nums);
+    for (int num : nums) {
+        cout << num << " ";
+    }
+    cout << endl;
+    return 0;
+}
+
+
+
+
+
+_________________________________________________________________________________________
+
+C Program
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void sortColors(vector<int>& nums) {
+    int start = 0;
+    int mid = 0;
+    int end = nums.size() - 1;
+
+    while (mid <= end) {
+        if (nums[mid] == 0) {
+            swap(nums[start], nums[mid]);
+            start++;
+            mid++;
+        } else if (nums[mid] == 1) {
+            mid++;
+        } else {
+            swap(nums[mid], nums[end]);
+            end--;
+        }
+    }
+}
+
+// Example usage:
+int main() {
+    vector<int> nums = {2,0,2,1,1,0};
+    sortColors(nums);
+    for (int num : nums) {
+        cout << num << " ";
+    }
+    cout << endl;
+    return 0;
+}
+
+
+_________________________________________________________________________________________
